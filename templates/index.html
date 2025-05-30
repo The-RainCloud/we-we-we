@@ -1,0 +1,79 @@
+      
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Monitoring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Authentication Overlay -->
+    <div id="authOverlay" class="overlay">
+        <div class="auth-container">
+            <h2>Authorization</h2>
+            <div id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username"><br>
+                <input type="password" id="loginPassword" placeholder="Password"><br>
+                <button id="loginButton">Login</button>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="mainContent" style="display: none;">
+        <div class="tab-selector">
+            <div class="tab active" data-tab="performance">Производительность</div>
+            <div class="tab" data-tab="files">Обзор файлов</div>
+        </div>
+        <h1 id="pageTitle">Server Monitoring</h1>
+        <p id="error" class="error"></p>
+        <div id="performanceTab" class="tab-content active">
+            <div class="metric-section">
+                <div class="metric-title"><i class="fas fa-microchip metric-icon"></i>CPU Usage</div>
+                <div class="progress-bar">
+                    <div class="progress" id="cpu_progress"></div>
+                </div>
+                <div class="metric-value"><span id="cpu_usage"></span>%</div>
+                <div class="metric-description">Percentage of CPU currently in use.</div>
+            </div>
+            <div class="metric-section">
+                <div class="metric-title"><i class="fas fa-memory metric-icon"></i>Memory Usage</div>
+                <div class="progress-bar">
+                    <div class="progress" id="memory_progress"></div>
+                </div>
+                <div class="metric-value"><span id="memory_usage"></span>%</div>
+                <div class="metric-description">Percentage of RAM currently in use.</div>
+            </div>
+            <div class="metric-section">
+                <div class="metric-title"><i class="fas fa-hdd metric-icon"></i>Disk Usage</div>
+                <div class="progress-bar">
+                    <div class="progress" id="disk_progress"></div>
+                </div>
+                <div class="metric-value"><span id="disk_usage"></span>%</div>
+                <div class="metric-description">Percentage of disk space currently in use.</div>
+            </div>
+            <div class="metric-section">
+                <div class="metric-title"><i class="fas fa-clock metric-icon"></i>Uptime</div>
+                <div class="metric-value"><span id="uptime"></span></div>
+                <div class="metric-description">Time since the server was last booted.</div>
+            </div>
+            <div class="metric-section">
+                <div class="metric-title"><i class="fas fa-tachometer-alt metric-icon"></i>Disk Read Speed</div>
+                <div class="metric-value"><span id="disk_read_speed"></span> MB/s</div>
+                <div class="metric-description">Rate at which data is being read from the disk.</div>
+            </div>
+        </div>
+        <div id="filesTab" class="tab-content">
+            <h2>File Overview</h2>
+            <p>This section will display a list of stored files and allow installation.</p>
+            <!-- TODO: Implement file listing and installation functionality -->
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
+    

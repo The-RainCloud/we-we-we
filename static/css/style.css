@@ -1,0 +1,319 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #282a36;
+    color: #f8f8f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+}
+
+body:hover {
+    background-color: #1e2029;
+}
+
+h1 {
+    color: #bd93f9;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    max-width: 800px;
+    width: 95%;
+    background-color: #44475a;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.metric-section {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #6272a4;
+    padding-bottom: 30px;
+}
+
+.metric-section:last-child {
+    border-bottom: none;
+}
+
+.metric-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #8be9fd;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.metric-title i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #50fa7b;
+}
+
+.metric-value {
+    font-size: 1.2rem;
+    color: #f8f8f2;
+    font-weight: 500;
+}
+
+.metric-description {
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 16px;
+    background-color: #6272a4;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background-color: #50fa7b;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+.error {
+    color: #ff5555;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(255, 85, 85, 0.15);
+    border-radius: 10px;
+    display: none;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.metric-icon {
+    margin-right: 10px;
+    color: #8be9fd;
+    font-size: 1.2rem;
+}
+
+.gauge-container {
+    width: 100%;
+    height: 120px;
+    position: relative;
+}
+
+.gauge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Optional: Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        padding: 30px;
+    }
+
+    .metric-title {
+        font-size: 1.3rem;
+    }
+
+    .metric-value {
+        font-size: 1.1rem;
+    }
+}
+
+/* Authentication Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.auth-container {
+    background-color: #44475a;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.auth-container:hover {
+    transform: translateY(-3px);
+}
+
+.auth-container h2 {
+    color: #f8f8f2;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.auth-container input {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 7px;
+    border: none;
+    width: 100%;
+    background-color: #6272a4;
+    color: #f8f8f2;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.auth-container input:focus {
+    background-color: #50fa7b;
+    color: #282a36;
+    outline: none;
+}
+
+.auth-container button {
+    background-color: #50fa7b;
+    color: #282a36;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.auth-container button:hover {
+    background-color: #3dd45b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Tab Selector Styles */
+.tab-selector {
+    display: flex;
+    background-color: #6272a4;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    overflow: hidden; /* Prevent border-radius overflow */
+}
+
+.tab {
+    padding: 12px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    flex: 1; /* Distribute space evenly */
+    color: #f8f8f2;
+    font-weight: 500;
+}
+
+.tab:hover {
+    background-color: #50fa7b;
+    color: #282a36;
+}
+
+.tab.active {
+    background-color: #50fa7b;
+    color: #282a36;
+    font-weight: bold;
+}
+
+/* Tab Content Styles */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/*Files Content Styles*/
+#filesTab {
+    padding: 20px;
+}
+
+#filesTab ul {
+    list-style: none;
+    padding: 0;
+}
+
+#filesTab li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #f8f8f2;
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Smooth hover effect */
+    padding: 5px; /* Add padding for a better touch area */
+    border-radius: 5px; /* Rounded corners for better aesthetics */
+}
+
+/* Style for directories */
+#filesTab li.directory:before {
+    content: "\f07b"; /* Font Awesome folder icon */
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-right: 8px;
+    width: 1.25em; /* Adjust the width as needed */
+    color: #f1fa8c; /* Yellow */
+}
+
+/* Style for files */
+#filesTab li.file:before {
+    content: "\f15b"; /* Font Awesome file icon */
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-right: 8px;
+    width: 1.25em; /* Adjust the width as needed */
+    color: #8be9fd; /* Cyan */
+}
+
+/* Hover effect for file list items */
+#filesTab li:hover {
+    background-color: rgba(98, 114, 164, 0.2); /* Slight highlight on hover */
+}
+
+/* Back Button Styling */
+#backButton {
+    background-color: #6272a4;
+    color: #f8f8f2;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 10px;
+}
+
+#backButton:hover {
+    background-color: #44475a;
+}
+
+#backButton i {
+    margin-right: 5px;
+}
